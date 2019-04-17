@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "199024112901",
+    "firebase_url": "https://tryproject-c2b7b.firebaseio.com",
+    "project_id": "tryproject-c2b7b",
+    "storage_bucket": "tryproject-c2b7b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:199024112901:android:17108cef7cc1c39a",
+        "android_client_info": {
+          "package_name": "com.example.momen.capstone_stage2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "199024112901-jrs3msl4l5detos2id4dcope7n59tu0r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.momen.capstone_stage2",
+            "certificate_hash": "4601b6ea144e1c19a353aab4f659c11f582dafa7"
+          }
+        },
+        {
+          "client_id": "199024112901-on83pe7c39b1278re3gtgnu9ha9crck6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBy1g5K5BRou9EWgIMSoIMx4Zqu5peNZag"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "199024112901-on83pe7c39b1278re3gtgnu9ha9crck6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
