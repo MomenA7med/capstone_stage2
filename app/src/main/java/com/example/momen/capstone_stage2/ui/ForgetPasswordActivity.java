@@ -30,15 +30,15 @@ public class ForgetPasswordActivity extends AppCompatActivity {
         save = findViewById(R.id.save);
 
         firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference().child("Users");
+        databaseReference = firebaseDatabase.getReference().child(getResources().getString(R.string.Users));
 
-        rand = getIntent().getStringExtra("rand");
-        name = getIntent().getStringExtra("name");
+        rand = getIntent().getStringExtra(getString(R.string.rand));
+        name = getIntent().getStringExtra(getString(R.string.name));
     }
 
     public void submit(View view) {
         if (TextUtils.isEmpty(code.getText().toString()))
-            code.setError("can not be empty");
+            code.setError(getString(R.string.can_not_be_empty));
         else if (rand.equals(code.getText().toString())){
             code.setVisibility(View.GONE);
             submit.setVisibility(View.GONE);
@@ -51,13 +51,13 @@ public class ForgetPasswordActivity extends AppCompatActivity {
     public void save(View view) {
         if (TextUtils.isEmpty(chg_pass.getText().toString()) || TextUtils.isEmpty(confirm_pass.getText().toString())){
             if (TextUtils.isEmpty(chg_pass.getText().toString()))
-                chg_pass.setError("can not be empty");
+                chg_pass.setError(getString(R.string.can_not_be_empty));
             if (TextUtils.isEmpty(confirm_pass.getText().toString()))
-                confirm_pass.setError("can not be empty");
+                confirm_pass.setError(getString(R.string.can_not_be_empty));
         }else if (chg_pass.getText().toString().equals(confirm_pass.getText().toString())){
             databaseReference.child(name).child("password").setValue(chg_pass.getText().toString());
             finish();
         }else
-            confirm_pass.setError("don't match");
+            confirm_pass.setError(getString(R.string.do_not_match));
     }
 }

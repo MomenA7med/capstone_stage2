@@ -26,9 +26,9 @@ public class LevelActivity extends AppCompatActivity {
         setContentView(R.layout.activity_level);
         ImageView img = findViewById(R.id.catagoryImgLevel);
         TextView name = findViewById(R.id.catagoryNameLevel);
-        final String categoryNum = getIntent().getStringExtra("categoryNum");
-        Picasso.with(this).load(getIntent().getStringExtra("image")).into(img);
-        name.setText(getIntent().getStringExtra("name"));
+        final String categoryNum = getIntent().getStringExtra(getString(R.string.categoryNum));
+        Picasso.with(this).load(getIntent().getStringExtra(getString(R.string.image))).into(img);
+        name.setText(getIntent().getStringExtra(getResources().getString(R.string.name)));
         rGroup = findViewById(R.id.radioGroup);
         startQuiz = findViewById(R.id.startQuiz);
         startQuiz.setOnClickListener(new View.OnClickListener() {
@@ -38,12 +38,12 @@ public class LevelActivity extends AppCompatActivity {
                 radioButton = findViewById(id);
                 if (radioButton!=null) {
                     Intent intent = new Intent(LevelActivity.this, QuestionActivity.class);
-                    intent.putExtra("categoryNum", categoryNum);
-                    intent.putExtra("level", radioButton.getText());
+                    intent.putExtra(getResources().getString(R.string.categoryNum), categoryNum);
+                    intent.putExtra(getString(R.string.level), radioButton.getText());
                     startActivity(intent);
                     //finish();
                 }else
-                    Toast.makeText(LevelActivity.this, "choose your level", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LevelActivity.this, R.string.choose_your_level, Toast.LENGTH_SHORT).show();
             }
         });
     }

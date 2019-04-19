@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference().child("Users").child(Help.userName).child("category");
+        databaseReference = firebaseDatabase.getReference().child(getResources().getString(R.string.Users)).child(Help.userName).child(getResources().getString(R.string.category));
 
         names = getListName();
         images = getListImage();
@@ -207,11 +207,11 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void catagoryOnClick(int postion) {
         Intent intent = new Intent(this,LevelActivity.class);
-        intent.putExtra("image",images.get(postion));
-        intent.putExtra("name",names.get(postion));
+        intent.putExtra(getResources().getString(R.string.image),images.get(postion));
+        intent.putExtra(getResources().getString(R.string.name),names.get(postion));
 
         Help.categoryName = names.get(postion);
-        intent.putExtra("categoryNum",categoryNum.get(postion));
+        intent.putExtra(getResources().getString(R.string.categoryNum),categoryNum.get(postion));
         startActivity(intent);
     }
 }

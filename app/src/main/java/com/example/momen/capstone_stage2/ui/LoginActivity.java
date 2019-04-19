@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
         mAdView.loadAd(adRequest);
 
         firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference().child("Users");
+        databaseReference = firebaseDatabase.getReference().child(getResources().getString(R.string.Users));
 
         users = new ArrayList<>();
 
@@ -102,11 +102,11 @@ public class LoginActivity extends AppCompatActivity {
                 if (flag) {
                     String rand = getRandomNumberString();
                     SmsManager smgr = SmsManager.getDefault();
-                    smgr.sendTextMessage(users.get(position).getPhone(), "trivia_app", rand, null, null);
-                    Toast.makeText(LoginActivity.this, "SMS Sent Successfully", Toast.LENGTH_SHORT).show();
+                    smgr.sendTextMessage(users.get(position).getPhone(), getResources().getString(R.string.trivia_app), rand, null, null);
+                    Toast.makeText(LoginActivity.this, R.string.sMS_sent_successfully, Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(LoginActivity.this,ForgetPasswordActivity.class);
-                    intent.putExtra("rand",rand);
-                    intent.putExtra("name",users.get(position).getName());
+                    intent.putExtra(getResources().getString(R.string.rand),rand);
+                    intent.putExtra(getResources().getString(R.string.name),users.get(position).getName());
                     startActivity(intent);
                 }
             }});
@@ -144,7 +144,7 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }else
-            Toast.makeText(this, "userName or password invalid", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.userName_or_password_invalid, Toast.LENGTH_SHORT).show();
 
     }
 
@@ -152,7 +152,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference().child("Users");
+        databaseReference = firebaseDatabase.getReference().child(getResources().getString(R.string.Users));
 
         users = new ArrayList<>();
 

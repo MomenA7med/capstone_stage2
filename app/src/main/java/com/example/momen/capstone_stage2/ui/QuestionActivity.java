@@ -54,8 +54,8 @@ public class QuestionActivity extends AppCompatActivity {
 
 
         TriviaService triviaService = TriviaRetrofit.getRetrofit().create(TriviaService.class);
-        Call<Response> call = triviaService.getQuestions("10",getIntent().getStringExtra("categoryNum"),
-                getIntent().getStringExtra("level"),"multiple");
+        Call<Response> call = triviaService.getQuestions(getString(R.string.ten),getIntent().getStringExtra(getString(R.string.categoryNum)),
+                getIntent().getStringExtra(getString(R.string.level)),getString(R.string.multiple));
         call.enqueue(new Callback<Response>() {
             @Override
             public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
@@ -86,7 +86,7 @@ public class QuestionActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Response> call, Throwable t) {
-                Toast.makeText(QuestionActivity.this, "Error in retriving data", Toast.LENGTH_SHORT).show();
+                Toast.makeText(QuestionActivity.this, R.string.error_in_retriving_data, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -175,8 +175,8 @@ public class QuestionActivity extends AppCompatActivity {
                         correctAnswer = resultsItems.get(position).getCorrectAnswer();
                     }else {
                         Intent intent = new Intent(QuestionActivity.this,DetailQuizActivity.class);
-                        intent.putExtra("size",size);
-                        intent.putExtra("numCorrect",numCorrect);
+                        intent.putExtra(getString(R.string.size),size);
+                        intent.putExtra(getString(R.string.numCorrect),numCorrect);
                         startActivity(intent);
                         finish();
                     }

@@ -33,14 +33,14 @@ public class DetailQuizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_quiz);
 
-        int correct = getIntent().getIntExtra("numCorrect",0);
-        int size = getIntent().getIntExtra("size",-1);
+        int correct = getIntent().getIntExtra(getString(R.string.numCorrect),0);
+        int size = getIntent().getIntExtra(getString(R.string.size),-1);
         final float percent = (float) correct/size;
         final float percentage = percent * 100;
 
         Toast.makeText(this, Help.userName + " " + Help.categoryName, Toast.LENGTH_SHORT).show();
         firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference().child("Users").child(Help.userName).child("category");
+        databaseReference = firebaseDatabase.getReference().child(getString(R.string.Users)).child(Help.userName).child(getString(R.string.category));
 
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -48,7 +48,7 @@ public class DetailQuizActivity extends AppCompatActivity {
                 boolean flag = false;
                 DataSnapshot dataChild = null;
                 for (DataSnapshot child : dataSnapshot.getChildren()){
-                    Log.i("ky",child.getKey());
+                    Log.i(getString(R.string.ky),child.getKey());
                     if (child.getKey().equals(Help.categoryName)){
                         flag = true;
                         dataChild = child;
@@ -59,15 +59,15 @@ public class DetailQuizActivity extends AppCompatActivity {
                     Category category = dataChild.getValue(Category.class);
                     if (category != null){
                         if (category.getMaxDegree() < (int) percentage) {
-                            Log.i("max",String.valueOf(category.getMaxDegree()));
-                            Log.i("maxI",Help.categoryName);
-                            databaseReference.child(Help.categoryName).child("maxDegree").setValue((int) percentage);
+                            Log.i(getString(R.string.max),String.valueOf(category.getMaxDegree()));
+                            Log.i(getString(R.string.maxI),Help.categoryName);
+                            databaseReference.child(Help.categoryName).child(getString(R.string.maxDegree)).setValue((int) percentage);
                         }
                     }
                 }else{
                     databaseReference.child(Help.categoryName).setValue(new Category(Help.categoryName,(int)percentage));
-                    Log.i("max","else");
-                    Log.i("maxI",Help.categoryName);
+                    Log.i(getString(R.string.max),getString(R.string.elsee));
+                    Log.i(getString(R.string.maxI),Help.categoryName);
                 }
             }
 
@@ -77,16 +77,16 @@ public class DetailQuizActivity extends AppCompatActivity {
             }
         });
 
-        PieChart pieChart=(PieChart)findViewById(R.id.chart);
+        PieChart pieChart=findViewById(R.id.chart);
         pieChart.setHoleRadius(50f);
         pieChart.setRotationEnabled(true);
         pieChart.setTransparentCircleAlpha(0);
-        pieChart.setCenterText(String.valueOf(percentage)+"%");
+        pieChart.setCenterText(String.valueOf(percentage)+getString(R.string.per));
         pieChart.setCenterTextSize(20);
         ArrayList<PieEntry> pieEntries =new ArrayList<>();
         pieEntries.add(new PieEntry(percentage));
         pieEntries.add(new PieEntry(100-percentage));
-        PieDataSet pieDataSet =new PieDataSet (pieEntries,"Score");
+        PieDataSet pieDataSet =new PieDataSet (pieEntries,getString(R.string.Score));
         ArrayList<Integer> colors=new ArrayList<>();
         colors.add(Color.GREEN);
         colors.add(Color.RED);

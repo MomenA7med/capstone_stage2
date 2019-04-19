@@ -28,7 +28,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference().child("Users");
+        databaseReference = firebaseDatabase.getReference().child(getString(R.string.Users));
         users = new ArrayList<>();
 
         databaseReference.addChildEventListener(new ChildEventListener() {
@@ -68,13 +68,13 @@ public class RegisterActivity extends AppCompatActivity {
         if (TextUtils.isEmpty(userName.getText().toString()) ||
                 TextUtils.isEmpty(phone.getText().toString())|| TextUtils.isEmpty(password.getText().toString())) {
             if (TextUtils.isEmpty(userName.getText().toString())) {
-                userName.setError("can not be empty");
+                userName.setError(getString(R.string.can_not_be_empty));
             }
             if (TextUtils.isEmpty(password.getText().toString())) {
-                password.setError("can not be empty");
+                password.setError(getString(R.string.can_not_be_empty));
             }
             if (TextUtils.isEmpty(phone.getText().toString())) {
-                phone.setError("can not be empty");
+                phone.setError(getString(R.string.can_not_be_empty));
             }
         }
         else {
@@ -87,7 +87,7 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
             if (flag){
-                userName.setError("this user name is exist");
+                userName.setError(getString(R.string.this_user_name_is_exist));
             }
             else {
                 databaseReference.child(user_name).setValue(new User(user_name,password.getText().toString(),phone.getText().toString(),null));

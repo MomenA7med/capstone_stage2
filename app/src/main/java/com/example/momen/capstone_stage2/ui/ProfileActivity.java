@@ -37,7 +37,7 @@ public class ProfileActivity extends AppCompatActivity {
         yourPhone = findViewById(R.id.your_phone);
         scoreRV = findViewById(R.id.scoreRV);
         firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference().child("Users");
+        databaseReference = firebaseDatabase.getReference().child(getResources().getString(R.string.Users));
         categories = new ArrayList<>();
         scoreRV.setHasFixedSize(false);
         scoreRV.setLayoutManager(new LinearLayoutManager(this));
@@ -75,7 +75,7 @@ public class ProfileActivity extends AppCompatActivity {
 
             }
         });
-        databaseReference.child(Help.userName).child("category").addChildEventListener(new ChildEventListener() {
+        databaseReference.child(Help.userName).child(getResources().getString(R.string.category)).addChildEventListener(new ChildEventListener() {
 
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {

@@ -39,31 +39,30 @@
     <string name="trivia_app">Trivia App</string>
     <string name="for_improve_your_level">for improve your level</string>
     <string name="In">in</string>
-    <string-array name="names">
-        <item>Sports</item>
-        <item>Arts</item>
-        <item>Animals</item>
-        <item>Since &amp; Nature</item>
-        <item>Music</item>
-        <item>General knowledge</item>
-        <item>Books</item>
-    </string-array>
-    <string-array name="images">
-        <item>https://www.thinkwy.org/wp-content/uploads/2017/10/hpfulq-1234.jpg</item>
-        <item>https://encoreatlanta.com/wp-content/uploads/2017/10/arts.jpg</item>
-        <item>http://www3.canisius.edu/~grandem/animalshabitats/JungleAnimalsBorder.jpg</item>
-        <item>https://gfb.global.ssl.fastly.net/wp-content/uploads/2017/06/Mountain_Gfb.jpg</item>
-        <item>http://pamis.org.uk/site/uploads/musicworkshop-image.jpg</item>
-        <item>https://highwaymail.co.za/wp-content/uploads/sites/50/2016/02/iq-test.jpg </item>
-        <item tools:ignore="TypographyDashes">https://www.amnesty.org.uk/files/styles/poster/s3/2018-08/books-548x331.jpg?6_RB5rrWNmvYuI7IRX8j5R0lElIJ7DqP&amp;itok=mgh-vdvG</item>
-    </string-array>
-    <string-array name="categotyNum">
-        <item>21</item>
-        <item>25</item>
-        <item>27</item>
-        <item>17</item>
-        <item>12</item>
-        <item>9</item>
-        <item>10</item>
-    </string-array>
+    <string name="numCorrect">numCorrect</string>
+    <string name="size">size</string>
+    <string name="Users">Users</string>
+    <string name="category">category</string>
+    <string name="ky">ky</string>
+    <string name="max">max</string>
+    <string name="maxI">maxI</string>
+    <string name="maxDegree">maxDegree</string>
+    <string name="elsee">else</string>
+    <string name="per">%</string>
+    <string name="Score">Score</string>
+    <string name="rand">rand</string>
+    <string name="name">name</string>
+    <string name="can_not_be_empty">can not be empty</string>
+    <string name="do_not_match">don\'t match</string>
+    <string name="categoryNum">categoryNum</string>
+    <string name="level">level</string>
+    <string name="choose_your_level">choose your level</string>
+    <string name="sMS_sent_successfully">SMS Sent Successfully</string>
+    <string name="userName_or_password_invalid">userName or password invalid</string>
+    <string name="ten">10</string>
+    <string name="multiple">multiple</string>
+    <string name="error_in_retriving_data">Error in retriving data</string>
+    <string name="this_user_name_is_exist">this user name is exist</string>
+
+
 </resources>
