@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.momen.capstone_stage2.R;
+import com.example.momen.capstone_stage2.model.Help;
 import com.squareup.picasso.Picasso;
 
 public class LevelActivity extends AppCompatActivity {
@@ -40,7 +41,7 @@ public class LevelActivity extends AppCompatActivity {
                     intent.putExtra("categoryNum", categoryNum);
                     intent.putExtra("level", radioButton.getText());
                     startActivity(intent);
-                    finish();
+                    //finish();
                 }else
                     Toast.makeText(LevelActivity.this, "choose your level", Toast.LENGTH_SHORT).show();
             }

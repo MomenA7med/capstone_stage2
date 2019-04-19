@@ -15,6 +15,7 @@
     <string name="profile">Profile</string>
     <string name="your_name">Your Name :</string>
     <string name="phone">Phone :</string>
+    <string name="your_degree_is">your max degree is </string>
     <string name="score">Score</string>
     <string name="go_to_categorty">Go to categorty</string>
     <string name="submit">submit</string>

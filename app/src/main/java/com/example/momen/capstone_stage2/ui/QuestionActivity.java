@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.example.momen.capstone_stage2.R;
 import com.example.momen.capstone_stage2.api.TriviaRetrofit;
 import com.example.momen.capstone_stage2.api.TriviaService;
+import com.example.momen.capstone_stage2.model.Help;
 import com.example.momen.capstone_stage2.model.Response;
 import com.example.momen.capstone_stage2.model.ResultsItem;
 
@@ -51,9 +52,6 @@ public class QuestionActivity extends AppCompatActivity {
 
         btnDefault = answer1.getBackground();
 
-        //Toast.makeText(this, String.valueOf(answer1.getBackground()), Toast.LENGTH_SHORT).show();
-        //Log.i("value",String.valueOf(answer1.getBackground()));
-        //Toast.makeText(this, getIntent().getStringExtra("level"), Toast.LENGTH_SHORT).show();
 
         TriviaService triviaService = TriviaRetrofit.getRetrofit().create(TriviaService.class);
         Call<Response> call = triviaService.getQuestions("10",getIntent().getStringExtra("categoryNum"),

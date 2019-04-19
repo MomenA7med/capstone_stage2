@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity
     List<String> names,images,categoryNum;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
-    CatalogAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
