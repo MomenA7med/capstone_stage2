@@ -63,6 +63,7 @@
     <string name="multiple">multiple</string>
     <string name="error_in_retriving_data">Error in retriving data</string>
     <string name="this_user_name_is_exist">this user name is exist</string>
+    <string name="userName">userName</string>
 
 
 </resources>

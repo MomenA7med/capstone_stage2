@@ -20,15 +20,18 @@ public class LevelActivity extends AppCompatActivity {
     RadioGroup rGroup;
     RadioButton radioButton;
     Button startQuiz;
+    String userName,nameS;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level);
         ImageView img = findViewById(R.id.catagoryImgLevel);
-        TextView name = findViewById(R.id.catagoryNameLevel);
+        final TextView name = findViewById(R.id.catagoryNameLevel);
+        userName = getIntent().getStringExtra(getString(R.string.userName));
         final String categoryNum = getIntent().getStringExtra(getString(R.string.categoryNum));
         Picasso.with(this).load(getIntent().getStringExtra(getString(R.string.image))).into(img);
-        name.setText(getIntent().getStringExtra(getResources().getString(R.string.name)));
+        nameS = getIntent().getStringExtra(getString(R.string.name));
+        name.setText(nameS);
         rGroup = findViewById(R.id.radioGroup);
         startQuiz = findViewById(R.id.startQuiz);
         startQuiz.setOnClickListener(new View.OnClickListener() {
@@ -39,9 +42,11 @@ public class LevelActivity extends AppCompatActivity {
                 if (radioButton!=null) {
                     Intent intent = new Intent(LevelActivity.this, QuestionActivity.class);
                     intent.putExtra(getResources().getString(R.string.categoryNum), categoryNum);
+                    intent.putExtra(getString(R.string.name),nameS);
+                    intent.putExtra(getString(R.string.userName),userName);
                     intent.putExtra(getString(R.string.level), radioButton.getText());
                     startActivity(intent);
-                    //finish();
+                    finish();
                 }else
                     Toast.makeText(LevelActivity.this, R.string.choose_your_level, Toast.LENGTH_SHORT).show();
             }

@@ -38,6 +38,7 @@ public class QuestionActivity extends AppCompatActivity {
     private int size,position=0,numCorrect=0;
     private List<ResultsItem> resultsItems;
     private TextView noQuestion;
+    String name,username;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +52,9 @@ public class QuestionActivity extends AppCompatActivity {
         answer4 = findViewById(R.id.answer4);
 
         btnDefault = answer1.getBackground();
+
+        name = getIntent().getStringExtra(getString(R.string.name));
+        username = getIntent().getStringExtra(getString(R.string.userName));
 
 
         TriviaService triviaService = TriviaRetrofit.getRetrofit().create(TriviaService.class);
@@ -177,6 +181,8 @@ public class QuestionActivity extends AppCompatActivity {
                         Intent intent = new Intent(QuestionActivity.this,DetailQuizActivity.class);
                         intent.putExtra(getString(R.string.size),size);
                         intent.putExtra(getString(R.string.numCorrect),numCorrect);
+                        intent.putExtra(getString(R.string.name),name);
+                        intent.putExtra(getString(R.string.userName),username);
                         startActivity(intent);
                         finish();
                     }

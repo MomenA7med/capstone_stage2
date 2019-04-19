@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity
     List<String> names,images,categoryNum;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
+    String userName ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +46,8 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        userName = getIntent().getStringExtra(getString(R.string.userName));
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference().child(getResources().getString(R.string.Users)).child(Help.userName).child(getResources().getString(R.string.category));
@@ -184,6 +187,7 @@ public class MainActivity extends AppCompatActivity
 
        if (id == R.id.profile) {
            Intent intent = new Intent(MainActivity.this,ProfileActivity.class);
+           intent.putExtra(getString(R.string.userName),userName);
            startActivity(intent);
        }
        else if (id == R.id.logOut){
@@ -209,7 +213,7 @@ public class MainActivity extends AppCompatActivity
         Intent intent = new Intent(this,LevelActivity.class);
         intent.putExtra(getResources().getString(R.string.image),images.get(postion));
         intent.putExtra(getResources().getString(R.string.name),names.get(postion));
-
+        intent.putExtra(getString(R.string.userName),userName);
         Help.categoryName = names.get(postion);
         intent.putExtra(getResources().getString(R.string.categoryNum),categoryNum.get(postion));
         startActivity(intent);

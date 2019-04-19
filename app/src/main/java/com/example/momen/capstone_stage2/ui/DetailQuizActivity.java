@@ -28,6 +28,7 @@ public class DetailQuizActivity extends AppCompatActivity {
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
+    String name,username;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,9 +39,11 @@ public class DetailQuizActivity extends AppCompatActivity {
         final float percent = (float) correct/size;
         final float percentage = percent * 100;
 
-        Toast.makeText(this, Help.userName + " " + Help.categoryName, Toast.LENGTH_SHORT).show();
+        name = getIntent().getStringExtra(getString(R.string.name));
+        username = getIntent().getStringExtra(getString(R.string.userName));
+
         firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference().child(getString(R.string.Users)).child(Help.userName).child(getString(R.string.category));
+        databaseReference = firebaseDatabase.getReference().child(getString(R.string.Users)).child(username).child(getString(R.string.category));
 
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -59,15 +62,11 @@ public class DetailQuizActivity extends AppCompatActivity {
                     Category category = dataChild.getValue(Category.class);
                     if (category != null){
                         if (category.getMaxDegree() < (int) percentage) {
-                            Log.i(getString(R.string.max),String.valueOf(category.getMaxDegree()));
-                            Log.i(getString(R.string.maxI),Help.categoryName);
-                            databaseReference.child(Help.categoryName).child(getString(R.string.maxDegree)).setValue((int) percentage);
+                            databaseReference.child(name).child(getString(R.string.maxDegree)).setValue((int) percentage);
                         }
                     }
                 }else{
-                    databaseReference.child(Help.categoryName).setValue(new Category(Help.categoryName,(int)percentage));
-                    Log.i(getString(R.string.max),getString(R.string.elsee));
-                    Log.i(getString(R.string.maxI),Help.categoryName);
+                    databaseReference.child(name).setValue(new Category(name,(int)percentage));
                 }
             }
 

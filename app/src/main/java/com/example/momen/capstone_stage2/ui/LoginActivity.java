@@ -141,6 +141,7 @@ public class LoginActivity extends AppCompatActivity {
         if (flag){
             Help.userName = users.get(position).getName();
             Intent intent = new Intent(this,MainActivity.class);
+            intent.putExtra(getString(R.string.userName),users.get(position).getName());
             startActivity(intent);
             finish();
         }else
