@@ -14,7 +14,7 @@ import retrofit2.http.Query;
 
 public interface TriviaService {
 
-    @GET(".")
+    @GET("?")
     Call<Response> getQuestions(@Query("amount") String amount,@Query("category") String category,
                                       @Query("difficulty") String difficulty,@Query("type") String type);
 }

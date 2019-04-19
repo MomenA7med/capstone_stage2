@@ -38,6 +38,7 @@
     <string name="register">register</string>
     <string name="trivia_app">Trivia App</string>
     <string name="for_improve_your_level">for improve your level</string>
+    <string name="In">in</string>
     <string-array name="names">
         <item>Sports</item>
         <item>Arts</item>

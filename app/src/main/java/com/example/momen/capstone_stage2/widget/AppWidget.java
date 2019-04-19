@@ -18,7 +18,7 @@ public class AppWidget extends AppWidgetProvider {
         CharSequence widgetText = context.getString(R.string.appwidget_text);
         // Construct the RemoteViews object
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.app_widget);
-        views.setTextViewText(R.id.appwidget_text, context.getString(R.string.your_degree_is)+String.valueOf(max)+" in "+category);
+        views.setTextViewText(R.id.appwidget_text, context.getString(R.string.your_degree_is)+String.valueOf(max)+context.getString(R.string.In)+category);
 
         // Instruct the widget manager to update the widget
         appWidgetManager.updateAppWidget(appWidgetId, views);
